@@ -127,6 +127,9 @@ while opcion != 5:
                             print("\nNo se a encotrado ninguna pelicula donde participe:", actor)
 
 
+                    case 4:
+                        break
+
 
                 input()                        
                             
