@@ -44,17 +44,22 @@ while opcion != 5:
 
         # Muestra de datos
         case 2:
+
+            os.system ("cls") 
+
             while True:
                    
                 print("------------   GESTION DE PELICULAS   ------------ \n\n")
-                print(" 1.  Mostrar películas \n 2.  Mostrar actores \n 3.  Salir ")
+                print(" 1.  Mostrar películas \n 2.  Mostrar actores \n 3.  Mostar cantidad de peliculas en memoria  \n 4.  Salir ")
                 submenu = int(input("\n Ingrese el numero de la opcion y presione enter: "))
                 
 
                 match submenu:
                     
+                    
                     # Muestra de todos los datos de la pelicula
                     case 1:
+                        os.system ("cls") 
                         # Recorre la lista entera de peliculas para imprimir los datos de cada una
                         for x in listaDePeliculas:
                               print("\nNombre del la Pelicula: ", x.get_pelicula(), 
@@ -65,28 +70,40 @@ while opcion != 5:
 
                     # Muestra de datos, Actores de pelicula
                     case 2:
+                        os.system ("cls") 
                         contador = 1
                         
                         # Muestra las peliculas disponibles para que el usuario ingrese de que pelicula quiere conocer los actores
                         for x in listaDePeliculas:
-                            print(contador, ".  ", x.get_pelicula())
+                            print(str(contador) + ". ", x.get_pelicula())
                             contador += 1
 
                         opcionActores = int(input("\nSelecciona de que Pelicula deseas ver los actores: "))
                         
                         contador = 1
+
+                        print("\nActores en la pelicula " + str(listaDePeliculas[opcionActores-1].get_pelicula()) + ":")
+
                         # Recorre la lista de actores y los muestra de una manera agradable
                         for x in listaDePeliculas[opcionActores-1].get_actores():
-                            print("Actor", str(contador) + ":  ", x)
+                            print("Actor", str(contador) + ": ", x.strip())
                             contador += 1
+
+                    
+                    case 3:
+                        os.system ("cls") 
+                        print("Existen " + str(len(listaDePeliculas)) + " elementos cargados en memoria ahora mismo :)")
                         
 
-                    case 3:
+                    case 4:
                         break
       
                 input()
         
         case 3:
+
+            os.system ("cls") 
+
             while True:
 
                 print("------------   FILTRADO   ------------ \n\n")
@@ -97,6 +114,7 @@ while opcion != 5:
 
                     # Filtrado por actor
                     case 1:
+                        os.system ("cls") 
                         contador = 1
                         find = False
 
@@ -115,14 +133,14 @@ while opcion != 5:
 
                                 # compora si el actor que se busca esta en la lista de actores 
                                 # por consiguiente imprime la pelicula donde es parte el actor
-                                if y == actor and contador == 1:
+                                if y.strip() == actor and contador == 1:
                                     print("Aparece en las siguientes peliculas: \n")
-                                    print(str(contador) + ".  ", x.get_pelicula())
+                                    print(str(contador) + ".  " +  str(x.get_pelicula()))
                                     contador += 1
                                     find = True
 
-                                elif y == actor and contador > 1:
-                                    print(str(contador), ".  ", x.get_pelicula())
+                                elif y.strip() == actor and contador > 1:
+                                    print(str(contador) + ".  " +  str(x.get_pelicula()))
                                     contador += 1
                                     find = True
                         
@@ -132,6 +150,7 @@ while opcion != 5:
 
                     # Filtrado por año
                     case 2:
+                        os.system ("cls") 
                         contador = 1
                         find = False
 
@@ -142,15 +161,18 @@ while opcion != 5:
                         for x in listaDePeliculas:
 
                             if x.get_anoPelicula() == year and contador == 1:
-                                print("En " + str(year) + "se publicaron las siguientes peliculas: \n")
-                                print(str(contador) + ".  \n", "Pelicula:", x.get_pelicula(), "\n Genero:", x.get_generoPelicula())
+                                print("En " + str(year) + " se publicaron las siguientes peliculas: \n")
+                                print(str(contador) + ".  \n", "Pelicula:", x.get_pelicula(), "\n Genero:", x.get_generoPelicula(), "\n")
                                 contador += 1 
                                 find = True
+                            
 
                             elif x.get_anoPelicula() == year and contador > 1:
                                     print(str(contador) + ".  \n", "Pelicula:", x.get_pelicula(), "\n Genero:", x.get_generoPelicula())
                                     contador +=1
                                     find = True
+
+                            
                       
                         if find == False:
                             print("\nNo se a encotrado ninguna pelicula de este año:", year)
@@ -159,6 +181,7 @@ while opcion != 5:
                     # Filtrado por genero
                     case 3:
 
+                        os.system ("cls")    
                         contador = 1
                         find = False
 
