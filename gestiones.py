@@ -1,4 +1,5 @@
 
+from funciones import *
 
 class peliculas:
     
@@ -57,30 +58,37 @@ def cargaDeArchivo(lista):
         temporal_anoPelicula = None
         temporal_generoPelicula = None
 
-        # Recorre cada objeto sepado en cada linea
+        # Recorre cada objeto separado en cada linea
         for x in i:               
-                 
-            match contador:
+            
+            # Guarda el valor de x sin espacios adelante o atras y sin saltos de linea
+            sinEspacios = x.strip()
 
+            match contador:
+                
                 case 0:
+                    temporal_nombrePelicula = sinEspacios
                     
-                    temporal_nombrePelicula = x
 
                 case 1:
                     x = x.split(",")
-                    temporal_actores = x
+                    temporal_actores = sinEspacios
+                    
 
                 case 2:
-                    temporal_anoPelicula = x
+                    temporal_anoPelicula = sinEspacios
 
                 case 3:
-                    temporal_generoPelicula = x
-
+                    temporal_generoPelicula = sinEspacios
+  
             contador += 1
+
+           
 
         # Hace uso de la clase peliculas y agrega los atributos       
         datos = peliculas(temporal_nombrePelicula, temporal_actores, temporal_anoPelicula ,temporal_generoPelicula) 
         
+
         # Agrega al final de la lista los datos
         lista.append(datos)
 

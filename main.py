@@ -86,7 +86,7 @@ while opcion != 5:
                 input()
         
         case 3:
-             while True:
+            while True:
 
                 print("------------   FILTRADO   ------------ \n\n")
                 print(" 1.  Filtrado por actor \n 2.  Filtrado por año \n 3.  Filtrado por género \n 4.  Salir")
@@ -112,7 +112,7 @@ while opcion != 5:
                             for y in x.get_actores():
 
                                 # compora si el actor que se busca esta en la lista de actores 
-                                # por cosiguiente imprime la pelicula donde es parte el actor
+                                # por consiguiente imprime la pelicula donde es parte el actor
                                 if y == actor and contador == 1:
                                     print("Aparece en las siguientes peliculas: \n")
                                     print(str(contador) + ".  ", x.get_pelicula())
@@ -121,17 +121,71 @@ while opcion != 5:
 
                                 elif y == actor and contador > 1:
                                     print(str(contador), ".  ", x.get_pelicula())
+                                    contador += 1
                                     find = True
                         
                         if find == False:
                             print("\nNo se a encotrado ninguna pelicula donde participe:", actor)
 
 
+                    # Filtrado por año
+                    case 2:
+                        contador = 1
+                        find = False
+
+                        # Guarda el nombre del actor
+                        year  = str(input("\n Ingrese el año que desea filtrar: "))
+
+                        # Recorre la lista de peliculas 
+                        for x in listaDePeliculas:
+
+                            if x.get_anoPelicula() == year and contador == 1:
+                                print("En " + str(year) + "se publicaron las siguientes peliculas: \n")
+                                print(str(contador) + ".  \n", "Pelicula:", x.get_pelicula(), "\n Genero:", x.get_generoPelicula())
+                                contador += 1 
+                                find = True
+
+                            elif x.get_anoPelicula() == year and contador > 1:
+                                    print(str(contador) + ".  \n", "Pelicula:", x.get_pelicula(), "\n Genero:", x.get_generoPelicula())
+                                    contador +=1
+                                    find = True
+                      
+                        if find == False:
+                            print("\nNo se a encotrado ninguna pelicula de este año:", year)
+
+
+                    # Filtrado por genero
+                    case 3:
+
+                        contador = 1
+                        find = False
+
+                        # Guarda el nombre del actor
+                        genero  = str(input("\n Ingrese el año que desea filtrar: "))
+
+                        # Recorre la lista de peliculas 
+                        for x in listaDePeliculas:
+                                                                    
+                            if x.get_generoPelicula()  == genero and contador == 1:
+                                print("Se encontraron las siguientes peliculas del genero" + genero + ": \n")
+                                print(str(contador) + ".", x.get_pelicula())
+                                contador += 1 
+                                find = True
+
+                            elif x.get_generoPelicula()   == genero and contador > 1:
+                                    print(str(contador) + ".", x.get_pelicula())
+                                    contador +=1
+                                    find = True
+                      
+                        if find == False:
+                            print("\nNo se a encotrado ninguna pelicula de este genero:", genero)
+
+                        
+
                     case 4:
                         break
 
-
-                input()                        
+                input()   
                             
 
             
