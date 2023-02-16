@@ -66,6 +66,7 @@ while opcion != 5:
                     # Muestra de datos, Actores de pelicula
                     case 2:
                         contador = 1
+                        
                         # Muestra las peliculas disponibles para que el usuario ingrese de que pelicula quiere conocer los actores
                         for x in listaDePeliculas:
                             print(contador, ".  ", x.get_pelicula())
@@ -94,6 +95,7 @@ while opcion != 5:
 
                 match submenu:
 
+                    # Filtrado por actor
                     case 1:
                         contador = 1
                         find = False

@@ -28,13 +28,13 @@ class peliculas:
     def set_pelicula(self, nombrePelicula):
         self.nombrePelicula = nombrePelicula
     
-    def set_pelicula(self, actores):
+    def set_actores(self, actores):
         self.actores = actores
     
-    def set_pelicula(self, anoPelicula):
+    def set_anoPelicula(self, anoPelicula):
         self.anoPelicula = anoPelicula
 
-    def set_pelicula(self, generoPelicula):
+    def set_generoPelicula(self, generoPelicula):
         self.generoPelicula = generoPelicula
 
 
@@ -46,6 +46,9 @@ def cargaDeArchivo(lista):
     archivo = open(ruta, "r")
     lineas = archivo.readlines()
 
+    repetido = False
+    contadorRepetidos= 0
+    contadorNoRepetidos = 0
     
     for i in lineas:
         # Se utiliza el ; para separar cada dato
@@ -71,7 +74,8 @@ def cargaDeArchivo(lista):
                     
 
                 case 1:
-                    x = x.split(",")
+                    #x = x.split(",")
+                    sinEspacios = sinEspacios.split(",")
                     temporal_actores = sinEspacios
                     
 
@@ -83,15 +87,41 @@ def cargaDeArchivo(lista):
   
             contador += 1
 
-           
+       
 
-        # Hace uso de la clase peliculas y agrega los atributos       
-        datos = peliculas(temporal_nombrePelicula, temporal_actores, temporal_anoPelicula ,temporal_generoPelicula) 
+        for y in lista:
+            if y.get_pelicula() == temporal_nombrePelicula:
+
+                lista[lista.index(y)].set_pelicula(temporal_nombrePelicula)
+                lista[lista.index(y)].set_actores(temporal_actores)
+                lista[lista.index(y)].set_anoPelicula(temporal_anoPelicula)
+                lista[lista.index(y)].set_generoPelicula(temporal_generoPelicula)
+                repetido = True
+                contadorRepetidos += 1
+
+
+                     
+        if repetido == False:
+
+            # Hace uso de la clase peliculas y agrega los atributos       
+            datos = peliculas(temporal_nombrePelicula, temporal_actores, temporal_anoPelicula ,temporal_generoPelicula) 
+            
+            # Agrega al final de la lista los datos
+            lista.append(datos)
+            contadorNoRepetidos += 1
+            
+
+        repetido = False
+
+    # Muestra en pantalla los elementos cargados o repetidos
+    if contadorRepetidos > 0:
+        print("\nSe han econtrado " + str(contadorRepetidos) + 
+              " repetidos. y se cargaron " + str(contadorNoRepetidos) + 
+              " elementos correctamente")
         
-
-        # Agrega al final de la lista los datos
-        lista.append(datos)
-
+    else:
+        print("\nSe cargaron " + str(contadorNoRepetidos) + 
+              " elementos orrectamente")
 
     archivo.close()
     
