@@ -23,7 +23,7 @@ while opcion != 5:
     os.system ("cls") 
     submenu = 0
 
-    print("------------------   MENU   ------------------\n\n")
+    print("------------------   MENU   ------------------\n")
     print("""
     1.  Cargar archivo de entrada
     2.  Gestionar películas
@@ -97,9 +97,11 @@ while opcion != 5:
 
                     case 4:
                         break
-      
+
                 input()
-        
+
+
+        # Opciones de Filtrado
         case 3:
 
             os.system ("cls") 
@@ -114,38 +116,45 @@ while opcion != 5:
 
                     # Filtrado por actor
                     case 1:
-                        os.system ("cls") 
+                        os.system("cls") 
                         contador = 1
                         find = False
+                        listaDeActores = []
+                        listaTemp_Peliculas = []
+
+
+                        # Llama a la funcion actores que guarda en una lista todos los actores presentes en memoria
+                        actores(listaDePeliculas, listaDeActores)
+
+                        imprimirFiltrado(listaDeActores, contador)
 
                         # Guarda el nombre del actor
-                        actor  = str(input("\n Ingrese el nombre del actor que desea buscar: "))
+                        actor  = int(input("\nIngrese la opcion que desea ver: "))
+                        actor = listaDeActores[actor-1]
 
-                        # Utiliza la funcion para escribir el nombre del actor correctamente
-                        #actor = inicialMayus(actor)
-   
+                        peliculas(listaDePeliculas, listaTemp_Peliculas, actor)
 
-                        # Recorre la lista de peliculas
-                        for x in listaDePeliculas:
+                        contador = 1
+                        for x in listaTemp_Peliculas:
 
-                            # Recorre la lista de acoteres para cada una de las peliculas
-                            for y in x.get_actores():
 
-                                # compora si el actor que se busca esta en la lista de actores 
-                                # por consiguiente imprime la pelicula donde es parte el actor
-                                if y.strip() == actor and contador == 1:
-                                    print("Aparece en las siguientes peliculas: \n")
-                                    print(str(contador) + ".  " +  str(x.get_pelicula()))
-                                    contador += 1
-                                    find = True
+                            # compora si el actor que se busca esta en la lista de actores 
+                            # por consiguiente imprime la pelicula donde es parte el actor
+                            if contador == 1:
+                                print(actor, "aparece en las siguientes peliculas: \n")
+                                print(str(contador) + ".",  x)
+                                contador += 1
+                                find = True
 
-                                elif y.strip() == actor and contador > 1:
-                                    print(str(contador) + ".  " +  str(x.get_pelicula()))
-                                    contador += 1
-                                    find = True
+                            elif contador > 1:
+                                print(str(contador) + ".", x)
+                                contador += 1
+                                find = True
                         
                         if find == False:
                             print("\nNo se a encotrado ninguna pelicula donde participe:", actor)
+
+
 
 
                     # Filtrado por año
@@ -154,23 +163,33 @@ while opcion != 5:
                         contador = 1
                         find = False
 
-                        # Guarda el nombre del actor
-                        year  = str(input("\n Ingrese el año que desea filtrar: "))
+                        listaTemp_Year = []
+                        listaTemp_Peliculas = []
+                        listaTemp_Genero = []
 
-                        # Recorre la lista de peliculas 
-                        for x in listaDePeliculas:
+                        year(listaDePeliculas, listaTemp_Year)
 
-                            if x.get_anoPelicula() == year and contador == 1:
-                                print("En " + str(year) + " se publicaron las siguientes peliculas: \n")
-                                print(str(contador) + ".  \n", "Pelicula:", x.get_pelicula(), "\n Genero:", x.get_generoPelicula(), "\n")
+                        imprimirFiltrado(listaTemp_Year, contador)
+
+                        yearOpcion  = int(input("\n Ingrese la opcion del año que desea filtrar: "))
+                        yearOpcion = listaTemp_Year[yearOpcion-1]
+
+                        filtradoYear(listaDePeliculas, listaTemp_Peliculas, listaTemp_Genero, yearOpcion)
+
+                        contador = 1
+                        # Recorre la lista temporal de peliculas
+                        for x in listaTemp_Peliculas:
+                            if contador == 1:
+                                print("En " + str(yearOpcion) + " se publicaron las siguientes peliculas: \n")
+                                print(str(contador) + ". \n", "Pelicula:", x, "\n Genero:", listaTemp_Genero[contador-1], "\n")
                                 contador += 1 
                                 find = True
                             
 
-                            elif x.get_anoPelicula() == year and contador > 1:
-                                    print(str(contador) + ".  \n", "Pelicula:", x.get_pelicula(), "\n Genero:", x.get_generoPelicula())
-                                    contador +=1
-                                    find = True
+                            else:
+                                print(str(contador) + ". \n", "Pelicula:", x, "\n Genero:", listaTemp_Genero[contador-1], "\n")
+                                contador +=1
+                                find = True
 
                             
                       
@@ -180,19 +199,27 @@ while opcion != 5:
 
                     # Filtrado por genero
                     case 3:
-
                         os.system ("cls")    
-                        contador = 1
                         find = False
+                        listaTemp_Genero = []
+                        listaTemp_Peliculas = []
+
+
+                        generoFilt(listaDePeliculas, listaTemp_Genero)
+
+                        contador = 1
+                        imprimirFiltrado(listaTemp_Genero, contador)
 
                         # Guarda el nombre del actor
-                        genero  = str(input("\n Ingrese el año que desea filtrar: "))
+                        genero  = int(input("\n Ingrese la opcion del genero que desea filtrar: "))
+                        genero = listaTemp_Genero[genero-1]
 
+   
                         # Recorre la lista de peliculas 
                         for x in listaDePeliculas:
                                                                     
-                            if x.get_generoPelicula()  == genero and contador == 1:
-                                print("Se encontraron las siguientes peliculas del genero" + genero + ": \n")
+                            if  x.get_generoPelicula() == genero and contador == 1:
+                                print("Se encontraron las siguientes peliculas del genero " + genero + ": \n")
                                 print(str(contador) + ".", x.get_pelicula())
                                 contador += 1 
                                 find = True
@@ -204,16 +231,15 @@ while opcion != 5:
                       
                         if find == False:
                             print("\nNo se a encotrado ninguna pelicula de este genero:", genero)
-
-                        
+  
 
                     case 4:
                         break
 
-                input()   
+                input()
+                os.system ("cls")  
                             
-
-            
+          
         case 5:
             break
                 
