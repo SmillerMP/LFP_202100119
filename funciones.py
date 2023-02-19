@@ -1,3 +1,4 @@
+
 def inicialMayus(texto):
     convertido = texto[0].upper() + texto[1:].lower()
     return convertido
@@ -15,7 +16,7 @@ def actores(listaGeneral, listaEspecifica):
     return listaEspecifica
 
 
-def peliculas(listaGeneral, listaEspecifica, dato):
+def peliculasFilt(listaGeneral, listaEspecifica, dato):
     for x in listaGeneral:
         for y in x.get_actores():
 

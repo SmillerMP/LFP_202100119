@@ -1,5 +1,6 @@
 from gestiones import *
 from funciones import *
+from creacionDot import graficarGrafo
 import os
 
 
@@ -119,20 +120,20 @@ while opcion != 5:
                         os.system("cls") 
                         contador = 1
                         find = False
-                        listaDeActores = []
+                        listaTemp_Actores = []
                         listaTemp_Peliculas = []
 
 
                         # Llama a la funcion actores que guarda en una lista todos los actores presentes en memoria
-                        actores(listaDePeliculas, listaDeActores)
+                        actores(listaDePeliculas, listaTemp_Actores)
 
-                        imprimirFiltrado(listaDeActores, contador)
+                        imprimirFiltrado(listaTemp_Actores, contador)
 
                         # Guarda el nombre del actor
                         actor  = int(input("\nIngrese la opcion que desea ver: "))
-                        actor = listaDeActores[actor-1]
+                        actor = listaTemp_Actores[actor-1]
 
-                        peliculas(listaDePeliculas, listaTemp_Peliculas, actor)
+                        peliculasFilt(listaDePeliculas, listaTemp_Peliculas, actor)
 
                         contador = 1
                         for x in listaTemp_Peliculas:
@@ -233,13 +234,27 @@ while opcion != 5:
                             print("\nNo se a encotrado ninguna pelicula de este genero:", genero)
   
 
+                    # Salida del menu 3
                     case 4:
+
                         break
 
                 input()
                 os.system ("cls")  
-                            
-          
+
+
+        # Grafica de nodos          
+        case 4:
+            listaTemp_Actores = []
+
+            actores(listaDePeliculas, listaTemp_Actores)
+
+
+            graficarGrafo(listaDePeliculas, listaTemp_Actores)
+
+            print("\nGrafica generada satisfactoriamente \n")
+
+
         case 5:
             break
                 
