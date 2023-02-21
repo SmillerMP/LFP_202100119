@@ -1,8 +1,9 @@
 import os
 
 def graficarGrafo(listaDePeliculas, listaTemp_Actores):
+
     
-    grafo_dot = open("grafos.dot","w")
+    grafo_dot = open("grafos.dot", "w")
     grafo_dot.write('digraph { \n')
     grafo_dot.write('rankdir = LR \n' )
     grafo_dot.write('node[shape=record, fontname="Arial", fontsize=15] \n')
@@ -29,7 +30,8 @@ def graficarGrafo(listaDePeliculas, listaTemp_Actores):
     grafo_dot.write("} \n")
     grafo_dot.close()
 
-    os.system("dot.exe -Tpdf grafos.dot -o Grafo.pdf")
+
+    os.system("dot.exe -Tpdf grafos.dot -o  Reporte.pdf")
 
 
 

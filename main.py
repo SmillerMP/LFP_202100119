@@ -46,9 +46,8 @@ while opcion != 5:
         # Muestra de datos
         case 2:
 
-            os.system ("cls") 
-
             while True:
+                os.system ("cls") 
                    
                 print("------------   GESTION DE PELICULAS   ------------ \n\n")
                 print(" 1.  Mostrar películas \n 2.  Mostrar actores \n 3.  Mostar cantidad de peliculas en memoria  \n 4.  Salir ")
@@ -67,6 +66,8 @@ while opcion != 5:
                                     "\nActores: ", x.get_actores() ,"\nAño de Estreno: ", 
                                     x.get_anoPelicula() ,"\nGenero de la Pelicula: ", 
                                     x.get_generoPelicula())
+                        
+                        input("\nPresiona Enter para continuar")
 
 
                     # Muestra de datos, Actores de pelicula
@@ -90,10 +91,14 @@ while opcion != 5:
                             print("Actor", str(contador) + ": ", x.strip())
                             contador += 1
 
+                        input("\nPresiona Enter para continuar")
+
                     
                     case 3:
                         os.system ("cls") 
                         print("Existen " + str(len(listaDePeliculas)) + " elementos cargados en memoria ahora mismo :)")
+
+                        input("\nPresiona Enter para continuar")
                         
 
                     case 4:
@@ -104,11 +109,9 @@ while opcion != 5:
 
         # Opciones de Filtrado
         case 3:
-
-            os.system ("cls") 
-
+ 
             while True:
-
+                os.system ("cls")  
                 print("------------   FILTRADO   ------------ \n\n")
                 print(" 1.  Filtrado por actor \n 2.  Filtrado por año \n 3.  Filtrado por género \n 4.  Salir")
                 submenu = int(input("\n Ingrese el numero de la opcion y presione enter: "))
@@ -117,7 +120,7 @@ while opcion != 5:
 
                     # Filtrado por actor
                     case 1:
-                        os.system("cls") 
+                        os.system ("cls") 
                         contador = 1
                         find = False
                         listaTemp_Actores = []
@@ -154,6 +157,8 @@ while opcion != 5:
                         
                         if find == False:
                             print("\nNo se a encotrado ninguna pelicula donde participe:", actor)
+
+                        input("\nPresiona Enter para continuar ")
 
 
 
@@ -197,10 +202,12 @@ while opcion != 5:
                         if find == False:
                             print("\nNo se a encotrado ninguna pelicula de este año:", year)
 
+                        input("\nPresiona Enter para continuar ")
+
 
                     # Filtrado por genero
                     case 3:
-                        os.system ("cls")    
+                        os.system ("cls") 
                         find = False
                         listaTemp_Genero = []
                         listaTemp_Peliculas = []
@@ -232,6 +239,8 @@ while opcion != 5:
                       
                         if find == False:
                             print("\nNo se a encotrado ninguna pelicula de este genero:", genero)
+
+                        input("\nPresiona Enter para continuar ")
   
 
                     # Salida del menu 3
@@ -239,22 +248,23 @@ while opcion != 5:
 
                         break
 
-                input()
-                os.system ("cls")  
-
 
         # Grafica de nodos          
         case 4:
+            os.system ("cls")  
+            
             listaTemp_Actores = []
 
             actores(listaDePeliculas, listaTemp_Actores)
-
-
             graficarGrafo(listaDePeliculas, listaTemp_Actores)
 
-            print("\nGrafica generada satisfactoriamente \n")
+            print("\nGrafica generada satisfactoriamente")
+
+            input("\nPresiona Enter para continuar ")
 
 
         case 5:
+            os.system ("cls") 
+            input("Gracias por usar este programa !_! ")
             break
                 
