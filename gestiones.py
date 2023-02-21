@@ -87,7 +87,6 @@ def cargaDeArchivo(lista):
   
             contador += 1
 
-       
 
         for y in lista:
             if y.get_pelicula() == temporal_nombrePelicula:
@@ -98,7 +97,6 @@ def cargaDeArchivo(lista):
                 lista[lista.index(y)].set_generoPelicula(temporal_generoPelicula)
                 repetido = True
                 contadorRepetidos += 1
-
 
                      
         if repetido == False:
