@@ -27,7 +27,7 @@ while opcion != 5:
     print("------------------   MENU   ------------------\n")
     print("""
     1.  Cargar archivo de entrada
-    2.  Gestionar películas
+    2.  Gestion de películas
     3.  Filtrado
     4.  Gráfica
     5.  Salir
@@ -252,7 +252,7 @@ while opcion != 5:
         # Grafica de nodos          
         case 4:
             os.system ("cls")  
-            
+
             listaTemp_Actores = []
 
             actores(listaDePeliculas, listaTemp_Actores)
