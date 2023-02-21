@@ -19,12 +19,10 @@
 - Grafica
 - Salir
 
-
 #
 
-
-
 ## Regla General
+
 Nunca sera necesario introducir texto a menos que se lo pida el programa, como la direccion para cargar el archivo, el programa esta diseñado para mostrar las opciones con numeros y que el usuario introduzca el numero de la opcion a usar o elegir.
 
 Sera necesario pulsar la tecla ENTER varias veces durante el uso del programa, normalmente el programa pedira que realice esta operacion.
@@ -32,6 +30,7 @@ Sera necesario pulsar la tecla ENTER varias veces durante el uso del programa, n
 #
 
 ## 1. Carga de Archivos
+
 Esta opcion permite cargar la URL o direccion absoluta del archivo, es importante que el archivo de entrada contenga el siguienete formato
 
 ```sh
@@ -43,6 +42,7 @@ es recomendable que el archivo no contenga espacios entre las comas y punto y co
 #
 
 ## 2. Gestion de Peliculas
+
 Se tienen los siguientes submenus:
 
 1. Mostrar Peliculas: muestra todas las peliculas cargadas en memoria, juntos con su informacion adicional, actores, fecha de publicacion y genero.
@@ -53,11 +53,12 @@ Se tienen los siguientes submenus:
 
 4. Salir: regresa al menu principal.
 
-![Gestion](\Capturas\gestionPeliculas.png)
 
+![texto_alternativo](/Practica%201%20LFP/Capturas/gestionPeliculas.png)
 #
 
 ## 3. Filtrado
+
 Se tienen los siguientes submenus:
 
 1. Filtrado por Actor: muestra una lista de todos los actores en memoria, el usuario debe ingresa la opcion que desea visualizar y el programa devolvera una lista de peliculas donde participa el actor seleccionado.
@@ -68,21 +69,21 @@ Se tienen los siguientes submenus:
 
 4. Salir: regresa al menu principal.
 
-![Filtrado](\Capturas\filtrado.png)
+![Filtrado](/Practica%201%20LFP/Capturas/filtrado.png)
 
 #
 
 ## 4. Grafica
+
 Genera un archivo.dot en el cual sea crean todos los nodos entre los actores presentes en cada pelicula, y la pelicula y su informacion, no es necesario cargar otro archivo o direccion, ya que toda la informacion necesaria la toma desde la memoria que se cargo inicialmente en el programa.
 El archivo final se crea en formato pdf con el nombre Reporte.
 
-![Grafo](\Capturas\grafo.png)
+![Grafo](/Practica%201%20LFP/Capturas/grafo.png)
 
 #
 
 ## 5. Salir
+
 Agradece el uso del programa :D
 
 #
-
-
