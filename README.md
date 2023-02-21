@@ -53,8 +53,8 @@ Se tienen los siguientes submenus:
 
 4. Salir: regresa al menu principal.
 
+![Gestiones](/Capturas/gestionPeliculas.png)
 
-![Gestiones](/Practica%201%20LFP/Capturas/gestionPeliculas.png)
 #
 
 ## 3. Filtrado
@@ -69,7 +69,7 @@ Se tienen los siguientes submenus:
 
 4. Salir: regresa al menu principal.
 
-![Filtrado](/Practica%201%20LFP/Capturas/filtrado.png)
+![Filtrado](/Capturas/filtrado.png)
 
 #
 
@@ -78,7 +78,7 @@ Se tienen los siguientes submenus:
 Genera un archivo.dot en el cual sea crean todos los nodos entre los actores presentes en cada pelicula, y la pelicula y su informacion, no es necesario cargar otro archivo o direccion, ya que toda la informacion necesaria la toma desde la memoria que se cargo inicialmente en el programa.
 El archivo final se crea en formato pdf con el nombre Reporte.
 
-![Grafo](/Practica%201%20LFP/Capturas/grafo.png)
+![Grafo](/Capturas/grafo.png)
 
 #
 
