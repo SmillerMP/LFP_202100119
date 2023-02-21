@@ -54,7 +54,7 @@ Se tienen los siguientes submenus:
 4. Salir: regresa al menu principal.
 
 
-![texto_alternativo](/Practica%201%20LFP/Capturas/gestionPeliculas.png)
+![Gestiones](/Practica%201%20LFP/Capturas/gestionPeliculas.png)
 #
 
 ## 3. Filtrado
