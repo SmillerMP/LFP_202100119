@@ -104,8 +104,6 @@ while opcion != 5:
                     case 4:
                         break
 
-                input()
-
 
         # Opciones de Filtrado
         case 3:
